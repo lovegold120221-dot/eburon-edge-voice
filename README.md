@@ -1,43 +1,37 @@
+
 <p align="center">
-  <img src=".github/assets/icon-dark.webp" alt="Eburon Edge Voice" width="120" height="120" />
+  <img src=".github/assets/eburon-logo-bronze.svg" alt="Eburon Edge Voice" width="120" height="120" />
 </p>
 
 <h1 align="center">Eburon Edge Voice</h1>
 
 <p align="center">
-  <strong>Sovereign Vocal Synthesis. unleashed locally.</strong><br/>
+  <strong>Sovereign Vocal Synthesis. Unleashed locally.</strong><br/>
   Clone identities. Orchestrate narratives. Apply studio-grade DSP.<br/>
-  All executing entirely on your own infrastructure.
+  All executing entirely on your own hardware.
 </p>
 
 <p align="center">
-  <a href="https://eburon.ai">eburon.ai</a> •
-  <a href="https://docs.eburon.ai">Docs</a> •
-  <a href="#download">Download</a> •
-  <a href="#features">Features</a> •
-  <a href="#api">API</a>
-</p>
-
-<br/>
-
-<p align="center">
-  <a href="https://eburon.ai">
-    <img src="landing/public/assets/app-screenshot-1.webp" alt="Eburon Edge Studio Workspace" width="800" />
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases">
+    <img src="https://img.shields.io/github/downloads/lovegold120221-dot/eburon-edge-voice/total?style=flat&color=BFA181" alt="Downloads" />
+  </a>
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest">
+    <img src="https://img.shields.io/github/v/release/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="Release" />
+  </a>
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/stargazers">
+    <img src="https://img.shields.io/github/stars/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="Stars" />
+  </a>
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="License" />
   </a>
 </p>
 
 <p align="center">
-  <em>Experience the Pantheon of Engines at <a href="https://eburon.ai">eburon.ai</a></em>
-</p>
-
-<br/>
-
-<p align="center">
-  <img src="landing/public/assets/app-screenshot-2.webp" alt="Eburon Edge Stories Editor" width="800" />
-</p>
-
-<p align="center">
-  <img src="landing/public/assets/app-screenshot-3.webp" alt="Eburon Edge CSR Agent" width="800" />
+  <a href="https://eburon.ai">eburon.ai</a> •
+  <a href="https://docs.eburon.ai">Documentation</a> •
+  <a href="#download">Runtime</a> •
+  <a href="#the-pantheon">Engines</a> •
+  <a href="#api">API</a>
 </p>
 
 <br/>
@@ -46,74 +40,102 @@
 
 Eburon Edge is a **local-first voice cloning studio** — a premium, open-source alternative to ElevenLabs. It enables the replication of vocal identities from mere seconds of audio, generating high-fidelity speech across 23 languages using our unique **Goddess-tier Pantheon engines**. 
 
-Designed for creative professionals and developers, it features a nonlinear DAW-style timeline for complex narrative production and an autonomous CSR Agent for real-time conversational AI.
+Designed for creative professionals, researchers, and developers, it features a nonlinear DAW-style timeline for complex narrative production and an autonomous CSR Agent for real-time conversational AI.
 
+### Core Philosophy
 - **Total Sovereignty** — Biometric voice data and neural weights stay on your machine.
-- **The Pantheon** — 7 specialized engines: Athena, Iris, Hestia, Hera, Nike, Artemis, and Gaia.
-- **Expressive Synthesis** — Native paralinguistic tag support (`[laugh]`, `[sigh]`, `[gasp]`) via Eburon Nike.
+- **The Pantheon** — 7 specialized engines optimized for distinct vocal tasks.
+- **Expressive Synthesis** — Native paralinguistic tag support (`[laugh]`, `[sigh]`, `[gasp]`).
 - **Pedalboard DSP** — Studio-grade effects (Pitch, Reverb, Compression) via Spotify’s Pedalboard.
-- **Nonlinear Editor** — Multi-track timeline for podcasts, audiobooks, and mixed dialogue.
-- **Autonomous CSR** — Real-time conversational agent with sub-100ms latency and empathy metrics.
-- **Hardware Optimized** — Built with Tauri (Rust) for native performance on Metal, CUDA, and ROCm.
-
----
-
-## Download
-
-| Platform              | Download                                               |
-| --------------------- | ------------------------------------------------------ |
-| macOS (Apple Silicon) | [Download DMG](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)   |
-| macOS (Intel)         | [Download DMG](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest) |
-| Windows               | [Download MSI](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)   |
-| Docker                | `docker compose up`                                    |
-
-> **[View all architectural binaries →](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)**
+- **Hardware Agnostic** — Native performance on Apple Metal, NVIDIA CUDA, and AMD ROCm.
 
 ---
 
 ## The Pantheon: Engine Registry
 
-| Engine                      | Architecture | Strengths                                                                                                                                |
-| --------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Eburon Athena** (1.7B)  | 10 Langs     | High-fidelity cloning with delivery instructions ("speak slowly", "whisper").                                                     |
-| **Eburon Iris** (0.6B)    | 10 Langs     | Efficient, low-VRAM footprint for rapid iteration on standard consumer hardware.                                                                                  |
-| **Eburon Hestia**          | English      | Lightweight (~1GB VRAM), 48kHz output, reaching 150x realtime speeds on CPU.                                                                              |
-| **Eburon Hera**            | 23 Langs     | Broadest linguistic coverage including Arabic, Hindi, Swahili, Hebrew, and Turkish. |
-| **Eburon Nike**            | English      | Expressive engine supporting paralinguistic sound tags inline with text.                                                                                   |
-| **Eburon Artemis** (1B)    | 10 Langs     | High-precision text-acoustic alignment for synchronized cinematic storytelling.                                                                      |
-| **Eburon Gaia** (3B)       | 10 Langs     | Extended coherence for long-form synthesis (chapters and manuscripts).                                                            |
+Choose the optimal neural architecture for your sequence. All models execute locally via VRAM.
+
+| Engine | Architecture | Strengths |
+| :--- | :--- | :--- |
+| **Eburon Athena** | 1.7B Params | High-fidelity cloning with delivery instructions ("whisper", "shout"). |
+| **Eburon Iris** | 0.6B Params | Efficient, low-VRAM footprint for rapid iteration on consumer GPUs. |
+| **Eburon Hestia** | English | Optimized for speed; reaching 150x realtime performance on CPU. |
+| **Eburon Hera** | 23 Langs | Broadest linguistic coverage including Arabic, Hindi, Swahili, and Hebrew. |
+| **Eburon Nike** | Expressive | Native support for paralinguistic markers and emotional inflection. |
+| **Eburon Artemis** | 1B Params | High-precision text-acoustic alignment for cinematic storytelling. |
+| **Eburon Gaia** | 3B Params | Extended coherence for long-form synthesis (Audiobooks/Manuscripts). |
 
 ### Paralinguistic Markers
-When using **Eburon Nike**, you can insert expressive tags directly into the manuscript:
+When using **Eburon Nike**, insert expressive tags directly into the manuscript:
 `[laugh]` `[chuckle]` `[gasp]` `[cough]` `[sigh]` `[groan]` `[sniff]` `[shush]` `[clear throat]`
+
+---
+
+## Workspace Modules
+
+### 1. Synthesis Studio
+A pro-grade editor featuring a "Smart Manuscript" interface. Type your text, inject Goddess-tier emotion tags, and render versions with millisecond latency.
+
+### 2. Stories Editor (Nonlinear DAW)
+Orchestrate multi-voice projects. Drag-and-drop synthesized clips onto a multi-track timeline, apply crossfades, and trim audio segments with architectural precision.
+
+### 3. Autonomous CSR Agent
+A real-time conversational console. Deploy Sarah or Narrator Alpha as an autonomous agent with sub-100ms latency, adjustable empathy coefficients, and live sentiment mapping.
+
+### 4. Pedalboard DSP
+Apply 8 studio-grade effects powered by Spotify's `pedalboard` library. Build reusable signal chain presets for consistent vocal branding.
 
 ---
 
 ## Technical Stack
 
-| Layer         | Technology                                        |
-| ------------- | ------------------------------------------------- |
-| **Studio App**   | Tauri (Rust)                                      |
-| **Interface**      | React, TypeScript, Tailwind CSS (Obsidian/Bronze Theme) |
-| **State**         | Zustand, React Query                              |
-| **API Backend**       | FastAPI (Python)                                  |
-| **DSP Engine**       | Pedalboard (Spotify)                              |
-| **Transcription** | Eburon Orbit (Whisper-based)                      |
-| **Inference**     | MLX (Apple Silicon) / PyTorch (CUDA/ROCm/DirectML) |
-| **Database**      | SQLite                                            |
+- **Studio App:** Tauri (Rust)
+- **Interface:** React, TypeScript, Tailwind CSS (Obsidian/Bronze Theme)
+- **API Backend:** FastAPI (Python)
+- **Transcription:** Eburon Orbit (Whisper-based)
+- **Inference:** MLX (Apple Silicon) / PyTorch (CUDA/ROCm/DirectML)
 
 ---
 
 ## API & Integration
 
-Eburon Edge exposes a local REST API for studio automation and third-party app integration.
+Eburon Edge Voice exposes a local REST API for studio automation and third-party integration.
 
 ```bash
 # Initialize Synthesis
 curl -X POST http://localhost:17493/generate \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "The future of vocal synthesis is local. [sigh]",
+    "text": "The future of vocal synthesis is sovereign. [sigh]",
     "engine": "nike",
-    "profile_id": "ep_001"
+    "profile_id": "ep_001",
+    "params": {
+      "reverb": 0.15,
+      "pitch_shift": -2
+    }
   }'
+Download
+Platform	Runtime	Backend
+macOS	Download DMG	Apple Silicon (MLX)
+Windows	Download MSI	NVIDIA CUDA / DirectML
+Linux	docker compose up	ROCm / CPU
+Development
+Quick Start
+code
+Bash
+download
+content_copy
+expand_less
+git clone https://github.com/lovegold120221-dot/eburon-edge-voice.git
+cd eburon-edge-voice
+
+just setup   # Initializes Python venv and dependencies
+just dev     # Starts the Backend Daemon and the Studio UI
+License
+
+MIT License — see LICENSE for details.
+
+<p align="center">
+<a href="https://eburon.ai">eburon.ai</a>
+</p>
+```
