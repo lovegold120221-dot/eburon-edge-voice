@@ -78,12 +78,12 @@ Eburon Edge is a **local-first voice cloning studio** — a free and open-source
 
 | Platform              | Download                                               |
 | --------------------- | ------------------------------------------------------ |
-| macOS (Apple Silicon) | [Download DMG](https://eburon.ai/download/mac-arm)   |
-| macOS (Intel)         | [Download DMG](https://eburon.ai/download/mac-intel) |
-| Windows               | [Download MSI](https://eburon.ai/download/windows)   |
+| macOS (Apple Silicon) | [Download DMG](https://github.com/codexxxhost2024/special-giggle/releases/latest)   |
+| macOS (Intel)         | [Download DMG](https://github.com/codexxxhost2024/special-giggle/releases/latest) |
+| Windows               | [Download MSI](https://github.com/codexxxhost2024/special-giggle/releases/latest)   |
 | Docker                | `docker compose up`                                    |
 
-> **[View all binaries →](https://github.com/codexxxhost2024/eburon-edge/releases/latest)**
+> **[View all binaries →](https://github.com/codexxxhost2024/special-giggle/releases/latest)**
 
 > **Linux** — Pre-built binaries are not yet available. See [eburon.ai/linux-install](https://eburon.ai/linux-install) for build-from-source instructions.
 
