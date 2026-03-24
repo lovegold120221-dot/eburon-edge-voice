@@ -11,21 +11,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases">
-    <img src="https://img.shields.io/github/downloads/lovegold120221-dot/eburon-edge-voice/total?style=flat&color=BFA181" alt="Downloads" />
-  </a>
-  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest">
-    <img src="https://img.shields.io/github/v/release/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="Release" />
-  </a>
-  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/stargazers">
-    <img src="https://img.shields.io/github/stars/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="Stars" />
-  </a>
-  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/lovegold120221-dot/eburon-edge-voice?style=flat&color=BFA181" alt="License" />
-  </a>
-</p>
-
-<p align="center">
   <a href="https://eburon.ai">eburon.ai</a> •
   <a href="https://docs.eburon.ai">Docs</a> •
   <a href="#download">Download</a> •
