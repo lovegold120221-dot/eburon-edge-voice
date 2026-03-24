@@ -82,12 +82,9 @@ export function MainEditor() {
   };
 
   return (
-    // Main view: Profiles top left, Generator bottom left, History right
-    <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 h-full min-h-0 overflow-hidden relative">
-      {/* Left Column */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 h-full min-h-0 overflow-hidden relative bg-[#050505]">
       <div className="flex flex-col min-h-0 overflow-hidden relative lg:overflow-hidden">
-        {/* Scroll Mask - Always visible, behind content */}
-        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-background to-transparent z-0 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505] to-transparent z-0 pointer-events-none" />
 
         {/* Fixed Header */}
         <div className="absolute top-0 left-0 right-0 z-10">

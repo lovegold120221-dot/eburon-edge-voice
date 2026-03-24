@@ -1,4 +1,4 @@
-# Voicebox development commands
+# Eburon Edge development commands
 # Install: brew install just (or cargo install just)
 # Usage: just --list
 
@@ -210,8 +210,8 @@ build-server: _ensure-venv
     if ($LASTEXITCODE -ne 0) { throw "build_binary.py failed with exit code $LASTEXITCODE" }; \
     $triple = (rustc --print host-tuple); \
     New-Item -ItemType Directory -Path "{{ tauri_dir }}/src-tauri/binaries" -Force | Out-Null; \
-    Copy-Item "backend/dist/voicebox-server.exe" "{{ tauri_dir }}/src-tauri/binaries/voicebox-server-$triple.exe" -Force; \
-    Write-Host "Copied sidecar: voicebox-server-$triple.exe"
+    Copy-Item "backend/dist/voicebox-server.exe" "{{ tauri_dir }}/src-tauri/binaries/eburon-server-$triple.exe" -Force; \
+    Write-Host "Copied sidecar: eburon-server-$triple.exe"
 
 # Build CUDA server binary and place in app data dir for local testing
 [windows]

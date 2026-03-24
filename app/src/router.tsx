@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-router';
 import { AppFrame } from '@/components/AppFrame/AppFrame';
 import { AudioTab } from '@/components/AudioTab/AudioTab';
+import { CSRPortal } from '@/components/CSRPortal/CSRPortal';
 import { EffectsTab } from '@/components/EffectsTab/EffectsTab';
 import { MainEditor } from '@/components/MainEditor/MainEditor';
 import { ModelsTab } from '@/components/ModelsTab/ModelsTab';
@@ -38,15 +39,12 @@ function RootLayout() {
 
   return (
     <AppFrame>
-      <div className="flex flex-1 min-h-0 overflow-hidden">
-        <Sidebar isMacOS={isMacOS()} />
-
-        <main className="flex-1 ml-20 overflow-hidden flex flex-col">
-          <div className="container mx-auto px-8 max-w-[1800px] h-full overflow-hidden flex flex-col">
-            <Outlet />
-          </div>
-        </main>
-      </div>
+      <Sidebar isMacOS={isMacOS()} />
+      <main className="flex-1 ml-16 overflow-hidden flex flex-col bg-obsidian">
+        <div className="flex-1 h-full overflow-hidden flex flex-col">
+          <Outlet />
+        </div>
+      </main>
 
       {/* Show download toasts for any active downloads (from anywhere) */}
       {activeDownloads.map((download) => {
@@ -132,6 +130,13 @@ const modelsRoute = createRoute({
   component: ModelsTab,
 });
 
+// CSR Agent route
+const csrRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/csr',
+  component: CSRPortal,
+});
+
 // Settings layout route (parent for sub-tabs)
 const settingsRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -193,6 +198,7 @@ const routeTree = rootRoute.addChildren([
   audioRoute,
   effectsRoute,
   modelsRoute,
+  csrRoute,
   settingsRoute.addChildren([
     settingsGeneralRoute,
     settingsGenerationRoute,

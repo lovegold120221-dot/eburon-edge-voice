@@ -70,7 +70,7 @@ def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
     application = FastAPI(
         title="Eburon API",
-        description="Production-quality Qwen3-TTS voice cloning API",
+        description="Eburon Edge Voice synthesis API",
         version=__version__,
     )
 

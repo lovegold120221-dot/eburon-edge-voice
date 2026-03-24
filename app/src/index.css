@@ -40,35 +40,47 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+
+  /* Custom colors for Eburon Edge */
+  --color-obsidian: #030303;
+  --color-carbon: #080808;
+  --color-surface: #0a0a0a;
+  --color-bronze: #BFA181;
+  --color-sand: #E5D9C5;
+
+  /* Font families */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
 }
 
 :root {
-  --background: 0 0% 95%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 97%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 97%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 92%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 90%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 43 50% 50%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 85%;
-  --input: 214.3 31.8% 88%;
-  --ring: 222.2 84% 4.9%;
-  --sidebar: 0 0% 92%;
-  --radius: 0.5rem;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
+  /* Light mode - not used, dark is default */
+  --background: 0 0% 6%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 0 0% 18%;
+  --primary-foreground: 0 0% 95%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 35 30% 63%; /* bronze #BFA181 */
+  --accent-foreground: 0 0% 6%;
+  --destructive: 0 62.8% 50%;
+  --destructive-foreground: 0 0% 95%;
+  --border: 0 0% 12%;
+  --input: 0 0% 12%;
+  --ring: 0 0% 40%;
+  --sidebar: 0 0% 4%;
+  --chart-1: 35 30% 63%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 }
 
 .dark {
@@ -84,15 +96,15 @@
   --secondary-foreground: 0 0% 95%;
   --muted: 0 0% 12%;
   --muted-foreground: 0 0% 60%;
-  --accent: 43 50% 45%;
-  --accent-foreground: 0 0% 95%;
+  --accent: 35 30% 63%; /* bronze #BFA181 */
+  --accent-foreground: 0 0% 6%;
   --destructive: 0 62.8% 50%;
   --destructive-foreground: 0 0% 95%;
   --border: 0 0% 12%;
   --input: 0 0% 12%;
   --ring: 0 0% 40%;
   --sidebar: 0 0% 4%;
-  --chart-1: 220 70% 50%;
+  --chart-1: 35 30% 63%;
   --chart-2: 160 60% 45%;
   --chart-3: 30 80% 55%;
   --chart-4: 280 65% 60%;
@@ -108,15 +120,58 @@
     @apply overflow-hidden;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
   }
-  /* Hide scrollbars globally */
+
+  /* Font family utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  /* Custom scrollbar */
   * {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a #030303;
   }
   *::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    width: 4px;
+    height: 4px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 10px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #BFA181;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Active glow effect */
+  .active-glow {
+    box-shadow: 0 0 20px rgba(191, 161, 129, 0.15);
+  }
+
+  /* Tag pill style */
+  .tag-pill {
+    background: rgba(191, 161, 129, 0.1);
+    border: 1px solid rgba(191, 161, 129, 0.2);
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
@@ -125,6 +180,38 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     letter-spacing: 0.1em;
+  }
+  
+  /* Tech grid background */
+  .tech-grid {
+    background-size: 80px 80px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  
+  /* Waveform pattern */
+  .waveform-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 5 5, 10 20 T 20 20 T 30 20 T 40 20' fill='none' stroke='rgba(191, 161, 129, 0.2)' stroke-width='1'/%3E%3C/svg%3E");
+  }
+  
+  /* Bronze text gradient */
+  .text-bronze-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #E5D9C5 40%, #BFA181 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Paralinguistic tag token */
+  .tag-token {
+    background: rgba(191, 161, 129, 0.15);
+    color: #BFA181;
+    border: 1px solid rgba(191, 161, 129, 0.3);
+    padding: 0 4px;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
   }
 }
 
@@ -170,4 +257,10 @@
 .loader-hidden > div > div {
   animation-play-state: paused !important;
   background-color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(191, 161, 129, 0.3);
+  color: #fff;
 }

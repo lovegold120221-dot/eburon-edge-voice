@@ -48,7 +48,7 @@ function getTargetTriple() {
 // Create a minimal executable for the platform
 function createPlaceholderBinary(targetTriple) {
   const isWindows = targetTriple.includes('windows');
-  const binaryName = `voicebox-server-${targetTriple}${isWindows ? '.exe' : ''}`;
+  const binaryName = `eburon-server-${targetTriple}${isWindows ? '.exe' : ''}`;
   const binaryPath = join(BINARIES_DIR, binaryName);
 
   // Check if real binary already exists (larger than our placeholder)
@@ -354,7 +354,7 @@ function createPlaceholderBinary(targetTriple) {
   } else {
     // Create a minimal shell script for Unix-like systems
     const script = `#!/bin/sh
-echo "[voicebox-server] Dev mode placeholder - start the real server with: bun run dev:server"
+echo "[eburon-server] Dev mode placeholder - start the real server with: bun run dev:server"
 exit 1
 `;
     writeFileSync(binaryPath, script, { mode: 0o755 });

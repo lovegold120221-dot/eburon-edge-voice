@@ -774,6 +774,35 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
 
 [[package]]
+name = "eburon"
+version = "0.3.1"
+dependencies = [
+ "base64 0.22.1",
+ "core-foundation-sys",
+ "coreaudio-sys",
+ "cpal",
+ "hound",
+ "objc",
+ "reqwest",
+ "scopeguard",
+ "screencapturekit",
+ "serde",
+ "serde_json",
+ "symphonia",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-fs",
+ "tauri-plugin-process",
+ "tauri-plugin-shell",
+ "tauri-plugin-updater",
+ "tokio",
+ "wasapi",
+ "webkit2gtk",
+ "windows 0.62.2",
+]
+
+[[package]]
 name = "either"
 version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5038,35 +5067,6 @@ name = "version_check"
 version = "0.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
-
-[[package]]
-name = "voicebox"
-version = "0.3.1"
-dependencies = [
- "base64 0.22.1",
- "core-foundation-sys",
- "coreaudio-sys",
- "cpal",
- "hound",
- "objc",
- "reqwest",
- "scopeguard",
- "screencapturekit",
- "serde",
- "serde_json",
- "symphonia",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-fs",
- "tauri-plugin-process",
- "tauri-plugin-shell",
- "tauri-plugin-updater",
- "tokio",
- "wasapi",
- "webkit2gtk",
- "windows 0.62.2",
-]
 
 [[package]]
 name = "vswhom"

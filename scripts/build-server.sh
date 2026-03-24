@@ -6,7 +6,7 @@ set -e
 # Determine platform
 PLATFORM=$(rustc --print host-tuple 2>/dev/null || echo "unknown")
 
-echo "Building voicebox-server for platform: $PLATFORM"
+echo "Building eburon-server for platform: $PLATFORM"
 
 # Build Python binary
 # Resolve PATH to absolute paths before changing directory
@@ -27,12 +27,12 @@ mkdir -p ../tauri/src-tauri/binaries
 
 # Copy binary with platform suffix
 if [ -f dist/voicebox-server ]; then
-    cp dist/voicebox-server ../tauri/src-tauri/binaries/voicebox-server-${PLATFORM}
-    chmod +x ../tauri/src-tauri/binaries/voicebox-server-${PLATFORM}
-    echo "Built voicebox-server-${PLATFORM}"
+    cp dist/voicebox-server ../tauri/src-tauri/binaries/eburon-server-${PLATFORM}
+    chmod +x ../tauri/src-tauri/binaries/eburon-server-${PLATFORM}
+    echo "Built eburon-server-${PLATFORM}"
 elif [ -f dist/voicebox-server.exe ]; then
-    cp dist/voicebox-server.exe ../tauri/src-tauri/binaries/voicebox-server-${PLATFORM}.exe
-    echo "Built voicebox-server-${PLATFORM}.exe"
+    cp dist/voicebox-server.exe ../tauri/src-tauri/binaries/eburon-server-${PLATFORM}.exe
+    echo "Built eburon-server-${PLATFORM}.exe"
 else
     echo "Error: Binary not found in dist/"
     exit 1
