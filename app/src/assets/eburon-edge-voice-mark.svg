@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Eburon Edge Voice mark</title>
+  <desc id="desc">Gradient microphone mark with waveform bars for Eburon Edge Voice.</desc>
+  <defs>
+    <linearGradient id="brand-gradient" x1="108" y1="112" x2="404" y2="392" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1EF2F2" />
+      <stop offset="0.48" stop-color="#1275FF" />
+      <stop offset="1" stop-color="#FF2CCB" />
+    </linearGradient>
+    <radialGradient id="orb-gradient" cx="0" cy="0" r="1" gradientTransform="translate(228 178) rotate(47.6) scale(224.809)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#53FFF9" />
+      <stop offset="0.42" stop-color="#0CB9FF" />
+      <stop offset="0.78" stop-color="#1A4CFF" />
+      <stop offset="1" stop-color="#8E1BFF" />
+    </radialGradient>
+    <radialGradient id="cyan-glow" cx="0" cy="0" r="1" gradientTransform="translate(184 210) rotate(90) scale(182)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#20FFF1" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#20FFF1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="pink-glow" cx="0" cy="0" r="1" gradientTransform="translate(328 264) rotate(90) scale(176)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF29D2" stop-opacity="0.92" />
+      <stop offset="1" stop-color="#FF29D2" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24" />
+    </filter>
+    <filter id="edge-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g opacity="0.86" filter="url(#soft-glow)">
+    <circle cx="184" cy="210" r="150" fill="url(#cyan-glow)" />
+    <circle cx="328" cy="264" r="146" fill="url(#pink-glow)" />
+  </g>
+
+  <g fill="none" stroke="url(#brand-gradient)" stroke-linecap="round" stroke-linejoin="round" filter="url(#edge-glow)">
+    <g opacity="0.92" stroke-width="12">
+      <path d="M84 250h22" />
+      <path d="M118 228v44" />
+      <path d="M146 194v112" />
+      <path d="M174 166v168" />
+      <path d="M202 190v120" />
+      <path d="M308 260h20" />
+      <path d="M338 240v40" />
+      <path d="M364 214v92" />
+      <path d="M390 188v144" />
+      <path d="M418 214v92" />
+      <path d="M446 240v40" />
+    </g>
+
+    <g stroke-width="14">
+      <path d="M166 254c0 49.706 40.294 90 90 90s90-40.294 90-90" />
+      <path d="M192 254c0 35.346 28.654 64 64 64s64-28.654 64-64" />
+      <path d="M256 344v48" />
+      <path d="M208 392h96" />
+      <path d="M222 392c0 16 14 28 34 28h30c10 0 20 4 26 12" />
+      <path d="M254 432h58" />
+    </g>
+  </g>
+
+  <g>
+    <circle cx="256" cy="190" r="84" fill="url(#orb-gradient)" fill-opacity="0.94" />
+    <path
+      d="M211 123c-20 18-32 44-32 72v6c0-16 6-34 18-48 18-22 44-34 72-34 18 0 35 5 50 15-16-20-38-30-64-30-17 0-32 4-44 11z"
+      fill="#7FFFF2"
+      fill-opacity="0.38"
+    />
+    <path
+      d="M234 124c-17 11-32 27-40 47-3 8-5 17-5 25 15-16 26-34 39-49 9-10 24-18 37-21-10-8-20-11-31-11z"
+      fill="#E4FFFF"
+      fill-opacity="0.42"
+    />
+  </g>
+</svg>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#030303]">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eburon Edge Voice | Cinematic Vocal Synthesis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Premium Fonts: Syne, Inter, JetBrains Mono -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@100;300;400;500&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#030303',
+                        carbon: '#0a0a0a',
+                        surface: '#121212',
+                        eburon: {
+                            gold: '#D4AF37',
+                            sand: '#E5D9C5',
+                            bronze: '#BFA181',
+                            muted: '#8A7D6D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    letterSpacing: {
+                        widest: '.25em',
+                        tighter: '-.04em',
+                    },
+                    animation: {
+                        'reveal': 'reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+                    },
+                    keyframes: {
+                        reveal: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            color: #E5D9C5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Cinematic Film Grain Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Architectural Hairline Grid */
+        .tech-grid {
+            background-size: 100px 100px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+        }
+
+        /* Premium Text Gradient */
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #E5D9C5 40%, #BFA181 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Subdued Ambient Glow */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Waveform SVG Pattern for Timeline */
+        .waveform-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 5 5, 10 20 T 20 20 T 30 20 T 40 20' fill='none' stroke='rgba(191, 161, 129, 0.2)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+
+        ::selection {
+            background: rgba(191, 161, 129, 0.3);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="relative">
+    <div class="noise-overlay"></div>
+    <div class="fixed inset-0 tech-grid z-[-1]"></div>
+
+    <!-- Ambient Lights -->
+    <div class="ambient-glow bg-eburon-bronze w-[600px] h-[600px] top-[-200px] left-[-100px]"></div>
+    <div class="ambient-glow bg-white w-[500px] h-[500px] bottom-[10%] right-[-100px] opacity-5"></div>
+
+    <!-- Editorial Navigation -->
+    <nav
+        class="fixed w-full z-50 top-0 mix-blend-difference px-6 py-8 flex justify-between items-center transition-all">
+        <div class="font-display font-bold text-2xl tracking-tighter text-white uppercase flex items-center gap-3">
+            <i class="fas fa-wave-square text-eburon-bronze text-sm"></i>
+            Eburon <span class="text-eburon-muted font-normal ml-1">Edge Voice</span>
+        </div>
+
+        <div class="hidden md:flex gap-12 font-mono text-[10px] tracking-widest uppercase text-white/60">
+            <a href="#vision" class="hover:text-eburon-sand transition-colors">Vision</a>
+            <a href="#editor" class="hover:text-eburon-sand transition-colors">Editor Engine</a>
+            <a href="https://github.com" class="hover:text-eburon-sand transition-colors">Source Architecture</a>
+        </div>
+
+        <a href="#download" class="group flex items-center gap-3">
+            <span class="font-sans text-xs uppercase tracking-widest text-white">Get Runtime</span>
+            <div class="w-2 h-2 border border-eburon-gold group-hover:bg-eburon-gold transition-colors duration-500">
+            </div>
+        </a>
+    </nav>
+
+    <!-- Cinematic Hero -->
+    <main class="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 pt-24 pb-12">
+        <div class="absolute left-12 top-0 bottom-0 w-px bg-white/5 hidden lg:block"></div>
+        <div class="absolute right-12 top-0 bottom-0 w-px bg-white/5 hidden lg:block"></div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
+
+            <div class="animate-reveal flex flex-col items-center">
+                <div
+                    class="font-mono text-[10px] uppercase tracking-[0.3em] text-eburon-bronze mb-8 flex items-center gap-4 border border-white/10 px-4 py-2 bg-white/[0.02] backdrop-blur-sm">
+                    <div class="w-1.5 h-1.5 bg-eburon-bronze rounded-full animate-pulse"></div>
+                    Core v0.2.0: Calliope-TTS Deployed
+                </div>
+
+                <h1
+                    class="font-display text-5xl md:text-7xl lg:text-[6.5rem] font-bold leading-[0.9] tracking-tighter mb-8 max-w-5xl mx-auto">
+                    <span class="text-white block">Vocal Synthesis.</span>
+                    <span class="gold-gradient italic block pt-2 pr-4">Unleashed Locally.</span>
+                </h1>
+
+                <p class="font-sans text-lg md:text-xl text-white/50 max-w-2xl leading-relaxed font-light mb-12">
+                    The ultimate offline voice cloning architecture. Clone any voice from seconds of audio using
+                    Goddess-tier models. No cloud dependencies. No subscription fees.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 font-mono text-xs uppercase tracking-widest"
+                    id="download">
+                    <a href="#"
+                        class="relative overflow-hidden group border border-white/20 bg-white/5 px-8 py-5 hover:border-eburon-bronze transition-colors duration-500 flex items-center gap-3 w-full sm:w-auto">
+                        <div
+                            class="absolute inset-0 bg-eburon-sand translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0">
+                        </div>
+                        <i
+                            class="fab fa-apple relative z-10 text-white group-hover:text-obsidian transition-colors duration-500 text-lg"></i>
+                        <span
+                            class="relative z-10 text-white group-hover:text-obsidian transition-colors duration-500 font-bold">macOS
+                            Binary</span>
+                    </a>
+
+                    <a href="#"
+                        class="relative overflow-hidden group border border-white/20 px-8 py-5 hover:border-eburon-bronze transition-colors duration-500 flex items-center gap-3 w-full sm:w-auto bg-obsidian">
+                        <i class="fab fa-windows relative z-10 text-white text-lg"></i>
+                        <span class="relative z-10 text-white font-bold">Windows Runtime</span>
+                    </a>
+                </div>
+                <div class="mt-6 font-mono text-[10px] text-white/30 uppercase tracking-widest">
+                    Linux supported via Docker Container.
+                </div>
+            </div>
+
+            <!-- Architectural App UI Mockup -->
+            <div id="editor" class="w-full max-w-6xl mt-24 relative animate-reveal" style="animation-delay: 0.3s">
+                <!-- Decorative Corners -->
+                <div class="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-white/50 z-20"></div>
+                <div class="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-white/50 z-20"></div>
+                <div class="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-white/50 z-20"></div>
+                <div class="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-white/50 z-20"></div>
+
+                <div
+                    class="bg-surface/60 backdrop-blur-xl border border-white/10 p-1 relative z-10 shadow-2xl shadow-eburon-bronze/5">
+                    <div class="bg-[#050505] border border-white/5 flex flex-col h-[600px]">
+
+                        <!-- Header Bar -->
+                        <div class="h-10 border-b border-white/5 flex items-center justify-between px-4 bg-carbon">
+                            <div class="flex gap-2">
+                                <div class="w-2 h-2 bg-white/20 hover:bg-white/50 transition-colors"></div>
+                                <div class="w-2 h-2 bg-white/20 hover:bg-white/50 transition-colors"></div>
+                                <div class="w-2 h-2 bg-white/20 hover:bg-white/50 transition-colors"></div>
+                            </div>
+                            <div class="font-mono text-[9px] uppercase tracking-widest text-white/40">Eburon Stories
+                                Editor // Workspace 01</div>
+                            <div class="font-mono text-[9px] text-eburon-bronze">
+                                <i class="fas fa-server mr-1"></i> Local: Active
+                            </div>
+                        </div>
+
+                        <!-- App Body -->
+                        <div class="flex flex-1 overflow-hidden">
+                            <!-- Sidebar -->
+                            <div class="w-64 border-r border-white/5 flex flex-col bg-carbon">
+                                <div class="p-4 border-b border-white/5">
+                                    <h3 class="font-mono text-[9px] uppercase tracking-[0.2em] text-eburon-bronze mb-4">
+                                        Voice Profiles</h3>
+                                    <div class="space-y-2">
+                                        <div
+                                            class="border border-eburon-bronze/30 bg-eburon-bronze/5 px-3 py-2 flex items-center justify-between cursor-pointer">
+                                            <div class="flex items-center gap-2">
+                                                <i class="fas fa-microphone-alt text-eburon-gold text-xs"></i>
+                                                <span class="font-sans text-xs text-white">Calliope Core</span>
+                                            </div>
+                                            <div class="w-1.5 h-1.5 bg-eburon-bronze rounded-full"></div>
+                                        </div>
+                                        <div
+                                            class="border border-white/5 hover:border-white/20 px-3 py-2 flex items-center gap-2 cursor-pointer transition-colors">
+                                            <i class="fas fa-user text-white/30 text-xs"></i>
+                                            <span class="font-sans text-xs text-white/60">Podcast Host</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="mt-4 w-full border border-dashed border-white/10 hover:border-eburon-bronze/50 py-2 font-mono text-[10px] uppercase tracking-widest text-white/40 hover:text-eburon-bronze transition-colors">
+                                        + Clone Identity
+                                    </button>
+                                </div>
+
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30 mb-4">
+                                        Architecture Settings</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="font-mono text-[9px] text-white/50 mb-2 block">Engine</label>
+                                            <div
+                                                class="border border-white/10 bg-obsidian px-3 py-2 font-mono text-xs text-white/80 flex justify-between">
+                                                Eburon Calliope-TTS <i class="fas fa-caret-down text-white/30"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label
+                                                class="font-mono text-[9px] text-white/50 mb-2 block">Cadence/Style</label>
+                                            <div
+                                                class="border border-white/10 bg-obsidian px-3 py-2 font-mono text-xs text-white/80 flex justify-between">
+                                                Articulate & Deep <i class="fas fa-caret-down text-white/30"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Main View -->
+                            <div class="flex-1 flex flex-col">
+                                <!-- Script Input -->
+                                <div class="p-6 border-b border-white/5 bg-obsidian relative">
+                                    <textarea
+                                        class="w-full h-24 bg-transparent font-sans text-sm text-white/80 placeholder-white/20 resize-none focus:outline-none"
+                                        placeholder="Input manuscript text to synthesize..."></textarea>
+                                    <div class="absolute bottom-4 right-4 flex gap-3">
+                                        <button
+                                            class="border border-white/10 hover:border-white/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">
+                                            Clear
+                                        </button>
+                                        <button
+                                            class="bg-white text-obsidian px-6 py-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-eburon-sand transition-colors flex items-center gap-2">
+                                            <i class="fas fa-bolt"></i> Synthesize
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Editor -->
+                                <div class="flex-1 bg-surface flex flex-col relative overflow-hidden">
+                                    <div
+                                        class="p-4 border-b border-white/5 bg-carbon flex justify-between items-center">
+                                        <h3 class="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+                                            Nonlinear Arrangement</h3>
+                                        <div class="flex gap-4 font-mono text-[10px] text-white/40">
+                                            <span>00:00:00:00</span>
+                                            <span>|</span>
+                                            <span>120 BPM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-1 relative">
+                                        <!-- Playhead -->
+                                        <div class="absolute top-0 bottom-0 left-1/3 w-px bg-eburon-bronze z-20">
+                                            <div
+                                                class="absolute -top-0 -left-1 w-2 h-2 bg-eburon-gold border border-obsidian">
+                                            </div>
+                                        </div>
+
+                                        <!-- Track 1 -->
+                                        <div class="flex h-24 border-b border-white/5 relative group">
+                                            <div
+                                                class="w-32 bg-carbon border-r border-white/5 p-3 flex flex-col justify-center z-10 shrink-0">
+                                                <span
+                                                    class="font-mono text-[10px] text-eburon-bronze truncate">Calliope</span>
+                                                <span class="font-mono text-[8px] text-white/30">Master</span>
+                                            </div>
+                                            <div class="flex-1 relative waveform-pattern bg-obsidian">
+                                                <!-- Audio Block -->
+                                                <div
+                                                    class="absolute top-4 left-10 h-16 w-64 border border-eburon-bronze bg-eburon-bronze/10 flex flex-col justify-center px-3 cursor-pointer group-hover:bg-eburon-bronze/20 transition-colors">
+                                                    <span
+                                                        class="font-mono text-[8px] text-eburon-sand mb-1 truncate">VO_Intro_01.wav</span>
+                                                    <svg viewBox="0 0 100 20"
+                                                        class="w-full h-8 text-eburon-bronze/80 stroke-current fill-none"
+                                                        preserveAspectRatio="none">
+                                                        <path
+                                                            d="M0 10 Q 5 20, 10 10 T 20 10 T 30 10 T 40 10 T 50 10 T 60 10 T 70 10 T 80 10 T 90 10 T 100 10">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Track 2 -->
+                                        <div class="flex h-24 border-b border-white/5 relative group">
+                                            <div
+                                                class="w-32 bg-carbon border-r border-white/5 p-3 flex flex-col justify-center z-10 shrink-0">
+                                                <span class="font-mono text-[10px] text-white/60 truncate">Host</span>
+                                                <span class="font-mono text-[8px] text-white/30">Guest 1</span>
+                                            </div>
+                                            <div class="flex-1 relative waveform-pattern bg-obsidian">
+                                                <!-- Audio Block -->
+                                                <div
+                                                    class="absolute top-4 left-[350px] h-16 w-48 border border-white/20 bg-white/5 flex flex-col justify-center px-3 cursor-pointer group-hover:bg-white/10 transition-colors">
+                                                    <span
+                                                        class="font-mono text-[8px] text-white/60 mb-1 truncate">VO_Reply_01.wav</span>
+                                                    <svg viewBox="0 0 100 20"
+                                                        class="w-full h-8 text-white/40 stroke-current fill-none"
+                                                        preserveAspectRatio="none">
+                                                        <path
+                                                            d="M0 10 Q 5 5, 10 10 T 20 10 T 30 10 T 40 10 T 50 10 T 60 10 T 70 10">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- The Paradigm Shift (Editorial Bento) -->
+    <section id="vision" class="py-32 relative border-t border-white/5 bg-carbon">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="flex flex-col md:flex-row gap-12 justify-between items-end mb-24">
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tighter max-w-2xl">
+                    Absolute Sovereignty.<br>
+                    <span class="text-white/40">Zero cloud reliance.</span>
+                </h2>
+                <p class="font-sans font-light text-white/50 max-w-sm text-sm leading-relaxed">
+                    Eburon Edge replaces centralized APIs entirely. All models run in your local VRAM. No subscription
+                    costs, no internet required, total data privacy.
+                </p>
+            </div>
+
+            <!-- Bento Grid - Editorial Style -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/5">
+
+                <!-- Feature 01 -->
+                <div class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group">
+                    <div class="font-mono text-xs text-eburon-bronze mb-12 flex items-center justify-between">
+                        <span>01.</span>
+                        <i class="fas fa-brain text-white/20 group-hover:text-eburon-bronze transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-white">Goddess-Tier Engines</h3>
+                    <p class="font-sans text-sm text-white/40 leading-relaxed font-light">
+                        Powered by our native Calliope-TTS architecture, alongside modular imports of Athena, Hera, and
+                        Artemis models. Switch architectures seamlessly based on desired timbre.
+                    </p>
+                </div>
+
+                <!-- Feature 02 -->
+                <div
+                    class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group bg-eburon-bronze/5">
+                    <div class="font-mono text-xs text-eburon-gold mb-12 flex items-center justify-between">
+                        <span>02.</span>
+                        <i
+                            class="fas fa-sliders-h text-eburon-gold/50 group-hover:text-eburon-gold transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-eburon-sand">Nonlinear DAW Editor</h3>
+                    <p class="font-sans text-sm text-white/60 leading-relaxed font-light">
+                        Leave simple text-boxes behind. Drag & drop multi-track timelines, complex conversational
+                        mixing, and precise inline trimming built natively for podcast and audiobook producers.
+                    </p>
+                </div>
+
+                <!-- Feature 03 -->
+                <div class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group">
+                    <div class="font-mono text-xs text-eburon-bronze mb-12 flex items-center justify-between">
+                        <span>03.</span>
+                        <i
+                            class="fas fa-microphone-alt text-white/20 group-hover:text-eburon-bronze transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-white">Rapid Identity Capture</h3>
+                    <p class="font-sans text-sm text-white/40 leading-relaxed font-light">
+                        Clone signatures from an existing FLAC/WAV file, record direct input via interface, or loopback
+                        system audio. Deep cloning achieved in less than 5 seconds of sample data.
+                    </p>
+                </div>
+
+                <!-- Feature 04 -->
+                <div class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group">
+                    <div class="font-mono text-xs text-eburon-bronze mb-12 flex items-center justify-between">
+                        <span>04.</span>
+                        <i
+                            class="fas fa-closed-captioning text-white/20 group-hover:text-eburon-bronze transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-white">Eburon Echo Integration</h3>
+                    <p class="font-sans text-sm text-white/40 leading-relaxed font-light">
+                        Transcribe samples dynamically using our integrated Whisper-derived Echo model. Perfect 1:1
+                        text-to-intonation mapping ensures the clone mimics your exact emotional inflection.
+                    </p>
+                </div>
+
+                <!-- Feature 05 -->
+                <div class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group">
+                    <div class="font-mono text-xs text-eburon-bronze mb-12 flex items-center justify-between">
+                        <span>05.</span>
+                        <i class="fas fa-bolt text-white/20 group-hover:text-eburon-bronze transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-white">Hardware Acceleration</h3>
+                    <p class="font-sans text-sm text-white/40 leading-relaxed font-light">
+                        Optimized rigorously. Scale between 0.6B to 1.7B parameter architectures matching your rig.
+                        Leverages CUDA Tensor Cores on Windows/Linux and Apple Silicon Metal natively.
+                    </p>
+                </div>
+
+                <!-- Feature 06 -->
+                <div class="border-r border-b border-white/5 p-10 hover:bg-white/[0.02] transition-colors group">
+                    <div class="font-mono text-xs text-eburon-bronze mb-12 flex items-center justify-between">
+                        <span>06.</span>
+                        <i class="fas fa-shield-alt text-white/20 group-hover:text-eburon-bronze transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl mb-4 text-white">MIT Licensed Core</h3>
+                    <p class="font-sans text-sm text-white/40 leading-relaxed font-light">
+                        Fully open-source inference pipeline. Inspect the network weights, modify the application GUI,
+                        and integrate the headless daemon into your own rendering pipelines.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Footer / CTA -->
+    <section class="py-32 relative border-t border-white/5 bg-obsidian overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-eburon-bronze/10 via-obsidian to-obsidian">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-8">
+                Reclaim your <span class="italic text-eburon-sand">voice.</span>
+            </h2>
+            <p class="font-sans font-light text-white/50 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                Download the Eburon Edge Voice binary today. Deploy the definitive open-source TTS toolkit directly on
+                your local workstation.
+            </p>
+
+            <a href="#download"
+                class="inline-flex items-center gap-4 bg-white text-obsidian px-10 py-5 font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-eburon-sand transition-colors duration-300">
+                Initialize Download
+                <span class="block w-4 h-px bg-obsidian"></span>
+            </a>
+
+            <div class="mt-8 font-mono text-[9px] text-white/30 uppercase tracking-widest flex justify-center gap-6">
+                <span>Free Forever</span>
+                <span>•</span>
+                <span>No API Keys</span>
+                <span>•</span>
+                <span>v0.2.0</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimalist Footer -->
+    <footer class="border-t border-white/5 bg-obsidian pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-display font-bold text-xl tracking-tighter text-white uppercase">
+                Eburon <span class="text-white/30 font-normal">Edge</span>
+            </div>
+
+            <div class="flex gap-8 font-mono text-[9px] uppercase tracking-widest text-white/40">
+                <a href="#" class="hover:text-white transition-colors">GitHub Repository</a>
+                <a href="#" class="hover:text-white transition-colors">Documentation</a>
+                <a href="#" class="hover:text-white transition-colors">Discord Connect</a>
+            </div>
+
+            <div class="font-mono text-[9px] tracking-widest text-white/30 uppercase">
+                &copy; 2026 EBURON LABS. Local Synthesis Protocol.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

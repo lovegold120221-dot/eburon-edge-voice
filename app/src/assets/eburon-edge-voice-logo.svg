@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Eburon Edge Voice logo</title>
+  <desc id="desc">Neon Eburon Edge Voice lockup with microphone mark and glowing wordmark.</desc>
+  <defs>
+    <linearGradient id="brand-gradient" x1="198" y1="150" x2="832" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1EF2F2" />
+      <stop offset="0.48" stop-color="#1275FF" />
+      <stop offset="1" stop-color="#FF2CCB" />
+    </linearGradient>
+    <radialGradient id="orb-gradient" cx="0" cy="0" r="1" gradientTransform="translate(492 288) rotate(47.6) scale(331.746)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#53FFF9" />
+      <stop offset="0.42" stop-color="#0CB9FF" />
+      <stop offset="0.78" stop-color="#1A4CFF" />
+      <stop offset="1" stop-color="#8E1BFF" />
+    </radialGradient>
+    <radialGradient id="cyan-glow" cx="0" cy="0" r="1" gradientTransform="translate(372 346) rotate(90) scale(308)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#20FFF1" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#20FFF1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="pink-glow" cx="0" cy="0" r="1" gradientTransform="translate(642 430) rotate(90) scale(304)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF29D2" stop-opacity="0.88" />
+      <stop offset="1" stop-color="#FF29D2" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+    <filter id="edge-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g opacity="0.9" filter="url(#soft-glow)">
+    <circle cx="372" cy="346" r="250" fill="url(#cyan-glow)" />
+    <circle cx="642" cy="430" r="246" fill="url(#pink-glow)" />
+    <ellipse cx="418" cy="720" rx="212" ry="116" fill="#10CFFF" fill-opacity="0.28" />
+    <ellipse cx="602" cy="720" rx="212" ry="116" fill="#D328FF" fill-opacity="0.24" />
+  </g>
+
+  <g transform="translate(132 68)">
+    <g fill="none" stroke="url(#brand-gradient)" stroke-linecap="round" stroke-linejoin="round" filter="url(#edge-glow)">
+      <g opacity="0.94" stroke-width="16">
+        <path d="M110 330h34" />
+        <path d="M156 294v72" />
+        <path d="M202 248v164" />
+        <path d="M248 192v276" />
+        <path d="M294 242v176" />
+        <path d="M470 350h32" />
+        <path d="M514 318v66" />
+        <path d="M556 274v152" />
+        <path d="M598 224v252" />
+        <path d="M644 256v186" />
+        <path d="M690 298v102" />
+        <path d="M736 330h34" />
+      </g>
+
+      <g stroke-width="20">
+        <path d="M226 338c0 84.5 68.5 153 153 153s153-68.5 153-153" />
+        <path d="M268 338c0 61.856 50.144 112 112 112s112-50.144 112-112" />
+        <path d="M380 490v74" />
+        <path d="M298 564h164" />
+        <path d="M322 564c0 27 23 48 57 48h38c18 0 35 8 46 22" />
+        <path d="M384 634h98" />
+      </g>
+    </g>
+
+    <g>
+      <circle cx="380" cy="254" r="132" fill="url(#orb-gradient)" fill-opacity="0.95" />
+      <path
+        d="M310 148c-31 28-50 69-50 113v11c0-27 10-53 28-75 29-34 68-53 112-53 27 0 54 8 77 24-24-31-59-46-101-46-24 0-46 6-66 16z"
+        fill="#7FFFF2"
+        fill-opacity="0.4"
+      />
+      <path
+        d="M344 150c-28 18-50 42-63 72-5 12-7 24-8 38 22-24 40-52 61-75 16-16 38-27 58-33-16-12-30-18-48-18z"
+        fill="#F1FFFF"
+        fill-opacity="0.44"
+      />
+    </g>
+  </g>
+
+  <g fill="url(#brand-gradient)" filter="url(#edge-glow)">
+    <text
+      x="512"
+      y="806"
+      text-anchor="middle"
+      font-family="Inter, Arial, sans-serif"
+      font-size="112"
+      font-weight="700"
+      letter-spacing="-4"
+    >
+      Eburon Edge
+    </text>
+    <text
+      x="512"
+      y="908"
+      text-anchor="middle"
+      font-family="Inter, Arial, sans-serif"
+      font-size="58"
+      font-weight="600"
+      letter-spacing="18"
+    >
+      VOICE
+    </text>
+  </g>
+</svg>
