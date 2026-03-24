@@ -129,7 +129,3 @@ just dev     # Starts the Backend Daemon and the Studio UI
 License
 
 MIT License — see LICENSE for details.
-
-<p align="center">
-<a href="https://eburon.ai">eburon.ai</a>
-</p>
