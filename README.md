@@ -1,8 +1,3 @@
-
-<p align="center">
-  <img src=".github/assets/eburon-logo-bronze.svg" alt="Eburon Edge Voice" width="120" height="120" />
-</p>
-
 <h1 align="center">Eburon Edge Voice</h1>
 
 <p align="center">
