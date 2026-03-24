@@ -133,4 +133,3 @@ MIT License — see LICENSE for details.
 <p align="center">
 <a href="https://eburon.ai">eburon.ai</a>
 </p>
-```
