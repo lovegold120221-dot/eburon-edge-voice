@@ -11,17 +11,17 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/codexxxhost2024/eburon-edge/releases">
-    <img src="https://img.shields.io/github/downloads/codexxxhost2024/eburon-edge/total?style=flat&color=blue" alt="Downloads" />
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases">
+    <img src="https://img.shields.io/github/downloads/lovegold120221-dot/eburon-edge-voice/total?style=flat&color=blue" alt="Downloads" />
   </a>
-  <a href="https://github.com/codexxxhost2024/eburon-edge/releases/latest">
-    <img src="https://img.shields.io/github/v/release/codexxxhost2024/eburon-edge?style=flat" alt="Release" />
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest">
+    <img src="https://img.shields.io/github/v/release/lovegold120221-dot/eburon-edge-voice?style=flat" alt="Release" />
   </a>
-  <a href="https://github.com/codexxxhost2024/eburon-edge/stargazers">
-    <img src="https://img.shields.io/github/stars/codexxxhost2024/eburon-edge?style=flat" alt="Stars" />
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/stargazers">
+    <img src="https://img.shields.io/github/stars/lovegold120221-dot/eburon-edge-voice?style=flat" alt="Stars" />
   </a>
-  <a href="https://github.com/codexxxhost2024/eburon-edge/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/codexxxhost2024/eburon-edge?style=flat" alt="License" />
+  <a href="https://github.com/lovegold120221-dot/eburon-edge-voice/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/lovegold120221-dot/eburon-edge-voice?style=flat" alt="License" />
   </a>
 </p>
 
@@ -78,12 +78,12 @@ Eburon Edge is a **local-first voice cloning studio** — a free and open-source
 
 | Platform              | Download                                               |
 | --------------------- | ------------------------------------------------------ |
-| macOS (Apple Silicon) | [Download DMG](https://github.com/codexxxhost2024/special-giggle/releases/latest)   |
-| macOS (Intel)         | [Download DMG](https://github.com/codexxxhost2024/special-giggle/releases/latest) |
-| Windows               | [Download MSI](https://github.com/codexxxhost2024/special-giggle/releases/latest)   |
+| macOS (Apple Silicon) | [Download DMG](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)   |
+| macOS (Intel)         | [Download DMG](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest) |
+| Windows               | [Download MSI](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)   |
 | Docker                | `docker compose up`                                    |
 
-> **[View all binaries →](https://github.com/codexxxhost2024/special-giggle/releases/latest)**
+> **[View all binaries →](https://github.com/lovegold120221-dot/eburon-edge-voice/releases/latest)**
 
 > **Linux** — Pre-built binaries are not yet available. See [eburon.ai/linux-install](https://eburon.ai/linux-install) for build-from-source instructions.
 
@@ -260,8 +260,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed setup and contribution guide
 ### Quick Start
 
 ```bash
-git clone https://github.com/codexxxhost2024/eburon-edge.git
-cd eburon-edge
+git clone https://github.com/lovegold120221-dot/eburon-edge-voice.git
+cd eburon-edge-voice
 
 just setup   # creates Python venv, installs all deps
 just dev     # starts backend + desktop app
